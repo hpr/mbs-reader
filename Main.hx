@@ -16,26 +16,26 @@ class Main {
 
     var scene:MbsScene = cast reader.getRoot();
 
-		var numTileLayers = scene.getDepth();
-		var sceneWidth = scene.getWidth();
-		var sceneHeight = scene.getHeight();
-		var tileWidth = scene.getTileWidth();
-		var tileHeight = scene.getTileHeight();
-		var gravityX = scene.getGravityX();
-		var gravityY = scene.getGravityY();
+    var numTileLayers = scene.getDepth();
+    var sceneWidth = scene.getWidth();
+    var sceneHeight = scene.getHeight();
+    var tileWidth = scene.getTileWidth();
+    var tileHeight = scene.getTileHeight();
+    var gravityX = scene.getGravityX();
+    var gravityY = scene.getGravityY();
     var eventSnippetID = scene.getEventSnippetID();
     
     trace("width", sceneWidth / tileWidth);
     trace("layers", numTileLayers);
 
     var joints = scene.getJoints();
-		var regions = scene.getRegions();
-		var terrainRegions = scene.getTerrainRegions();
+    var regions = scene.getRegions();
+    var terrainRegions = scene.getTerrainRegions();
     trace("joints", joints.length());
     trace("regions", regions.length());
     trace("terrainRegions", terrainRegions.length());
-		
-		var actors:MbsList<MbsActorInstance> = scene.getActorInstances();
+    
+    var actors:MbsList<MbsActorInstance> = scene.getActorInstances();
     trace("actors", actors.length());
     for(i in 0...actors.length()) {
       var actor:MbsActorInstance = actors.getNextObject();
@@ -60,8 +60,8 @@ class Main {
       var position:MbsPoint = poly.getPosition();
       var posx = position.getX();
       var posy = position.getY();
-			var points:MbsList<MbsPoint> = poly.getPoints();
-			// var shapeData:Map<Int,Dynamic> = ShapeReader.createPolygon("MbsWireframe", points);
+      var points:MbsList<MbsPoint> = poly.getPoints();
+      // var shapeData:Map<Int,Dynamic> = ShapeReader.createPolygon("MbsWireframe", points);
       trace(posx, posy, points.length(), ':');//, position, points, shapeData);
       for (j in 0...points.length()) {
         var p = points.getNextObject();
